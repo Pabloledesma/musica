@@ -28,4 +28,11 @@ export class HomePage {
         this.allMusic = musicList;
       });
   }
+
+  addOneSong(refresher){
+    this.musicProvider.getOneSong().subscribe(song => {
+      this.allMusic.push(song);
+      refresher.complete();
+    });
+  }
 }

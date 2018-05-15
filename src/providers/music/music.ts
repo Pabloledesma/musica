@@ -21,4 +21,8 @@ export class MusicProvider {
   getMusic(){
     return this.http.get(API);
   }
+
+  getOneSong(){
+    return this.http.get(API + '/qty/1');
+  }
 }
