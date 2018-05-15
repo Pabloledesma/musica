@@ -18,7 +18,7 @@
       <ion-card-title>{{music.name}}</ion-card-title>
       {{music.description}}
       <ion-item>
-        <button ion-button item-left>Share</button>
+        <button ion-button item-left (click)="shareSong()">Share</button>
         <button ion-button item-right>Listen</button>
       </ion-item>
     </ion-card-content>
