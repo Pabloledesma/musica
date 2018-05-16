@@ -16,7 +16,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class MusicPlayerPage {
 
   public music;
-  private songMedia: MediaObject;
+  private songMedia: MediaObject = null;
   public isMusicPaused = false;
 
   constructor(
@@ -24,10 +24,11 @@ export class MusicPlayerPage {
     public navCtrl: NavController, 
     public navParams: NavParams) {
     this.music = this.navParams.get('music');
+    console.log(this.music);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MusicPlayerPage');
+    
   }
 
   stop(){
@@ -40,6 +41,7 @@ export class MusicPlayerPage {
 
   play(){
     if(this.songMedia === null){
+      console.log('creating song media: ' + this.music.music_url);
       this.songMedia = this.media.create(this.music['music_url']);
       this.songMedia.play();
     } else {
