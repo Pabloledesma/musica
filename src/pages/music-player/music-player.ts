@@ -17,6 +17,7 @@ export class MusicPlayerPage {
 
   public music;
   private songMedia: MediaObject;
+  public isMusicPaused = false;
 
   constructor(
     private media: Media,
@@ -33,18 +34,27 @@ export class MusicPlayerPage {
     if(this.songMedia !== null){
       this.songMedia.stop();
       this.songMedia.release();
+      this.songMedia = null;
     }
   }
 
   play(){
-    if(this.songMedia === null)
-    this.songMedia = this.media.create(this.music.music_url);
-    this.songMedia.play();
+    if(this.songMedia === null){
+      this.songMedia = this.media.create(this.music['music_url']);
+      this.songMedia.play();
+    } else {
+      if(this.isMusicPaused === true){
+        this.songMedia.play();
+        this.isMusicPaused = false;
+      }
+    }
   }
 
   pause(){
-    if(this.songMedia !== null)
+    if(this.songMedia !== null){
       this.songMedia.pause();
+      this.isMusicPaused = true;
+    }
   }
 
 }
