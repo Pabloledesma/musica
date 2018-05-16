@@ -6,17 +6,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { MusicPlayerPage } from '../pages/music-player/music-player';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { Media, MediaObject } from '@ionic-native/media';
 import { MusicProvider } from '../providers/music/music';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    MusicPlayerPage
   ],
   imports: [
     HttpClientModule,
@@ -27,9 +30,11 @@ import { MusicProvider } from '../providers/music/music';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    MusicPlayerPage
   ],
   providers: [
+    Media,
     StatusBar,
     SocialSharing,
     StatusBar,
